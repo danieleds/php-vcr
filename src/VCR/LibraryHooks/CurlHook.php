@@ -313,11 +313,12 @@ class CurlHook implements LibraryHook
      *
      * @param array<int, mixed> $options an array specifying which options to set and their values
      */
-    public static function curlSetoptArray(CurlHandle $curlHandle, array $options): void
+    public static function curlSetoptArray(CurlHandle $curlHandle, array $options): bool
     {
         foreach ($options as $option => $value) {
             static::curlSetopt($curlHandle, $option, $value);
         }
+        return true;
     }
 
     /**
